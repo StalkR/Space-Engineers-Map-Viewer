@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="planet.js"></script>
+<script src="planets.js"></script>
+<script src="viewer.js"></script>
+</head>
+<body>
+<div id="loader"></div>
+<div id="container">
+    <div id="left">
+        <canvas id="canvas" width="1280" height="960"></canvas>
+    </div>
+    <div id="right">
+        <b>Space Engineers map viewer</b>
+        <ul>
+        <li>Choose planet:
+            <select id="choose-planet">
+                <option>-</option>
+            </select>
+        </li>
+        <li>Be patient, maps are large (5-20MB), so might take a while to load.</li>
+        </ul>
+        <b>Map coordinates to GPS</b>
+        <ul>
+            <li>Drag to move, wheel to zoom in/out, then click.</li>
+            <li>Map coordinates: <input id="click-coords" size="10" disabled></li>
+            <li>
+                <input id="get-gps" value="GPS:" size="60" disabled>
+                <img id="copy-to-clipboard" src="clipboard.png" width="20" width="20">
+                <span id="copied">copied!</span>
+            </li>
+            <li>Ore: <input id="get-ore" value="none" disabled></li>
+        </ul>
+        <b>GPS to map coordinates</b>
+        <ul>
+            <li>GPS: <input id="give-gps" type="text" size="60"></li>
+            <li>Map coordinates: <input id="give-coords" size="10" disabled></li>
+        </ul>
+        <b>Notes</b>
+        <ul>
+            <li>Some planets also redefine the default surface and subsurface materials, e.g. DIE's Comet defines it as ice instead of the usual soil/stone, so the fact that there's ore defined at specific locations doesn't matter since in the end it's everywhere.</li>
+        </ul>
+        <b>Thanks</b>
+        <ul>
+            <li><a href="https://www.spaceengineersgame.com/">Space Engineers</a> game (<a href="https://store.steampowered.com/app/244850/Space_Engineers/">steam</a>)</li>
+            <li><a href="https://sigmadraconis.games/">Sigma Draconis games</a> for <a href="https://wiki.sigmadraconis.games/doku.php?id=di:draconis_impossible">Draconis Impossible Extended (DIE)</a></li>
+        </ul>
+        <br>
+        Source: <a href="https://github.com/StalkR/Space-Engineers-Map-Viewer">github.com/StalkR/Space-Engineers-Map-Viewer</a>
+    </div>
+</div>
+</body>
+</html>

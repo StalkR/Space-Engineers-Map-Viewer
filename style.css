@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#container {
+    display: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    min-width: 1400px;
+}
+
+#left {
+    float: left;
+    width: 1290px;
+    margin-right: -1290px;
+    height: 100%;
+}
+
+#right {
+    margin-left: 1290px;
+}
+
+#canvas {
+    border: 1px solid #c0c0c0;
+    touch-action: manipulation;
+}
+
+#copy-to-clipboard {
+    vertical-align: middle;
+}
+
+#copy-to-clipboard:hover {
+    cursor: pointer;
+}
+
+#copied {
+    display: none;
+}

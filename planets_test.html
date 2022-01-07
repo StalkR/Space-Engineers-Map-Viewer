@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="planet.js"></script>
+<script src="planets.js"></script>
+<script>
+async function test() {
+  for (const [name, planet] of Object.entries(Planets)) {
+    await planet.load();
+    // test points to visualize cubemap faces and orientation, and verify roundtrip point-gps-point
+    for (const [face, v] of Object.entries(Planet.CUBEMAP)) {
+      let p = {x: v.x*planet.size + 512, y: v.y*planet.size + 512};
+      let gps = planet.point_to_world(p.x, p.y, p.z);
+      let q = planet.world_to_point(gps.x, gps.y, gps.z);
+      console.log(""+face+" top-left: ["+p.x+", "+p.y+"] -> ["+gps.x+", "+gps.y+", "+gps.z+"] -> ["+q.x+", "+q.y+"]");
+      if (q.x != p.x || q.y != p.y) throw "point mismatch "+face+" top left";
+      p = {x: v.x*planet.size + 1024, y: v.y*planet.size + 1024};
+      gps = planet.point_to_world(p.x, p.y, p.z);
+      console.log("["+v.x+", "+v.y+"] -> GPS:"+name+" (face "+face+"):"+p.x+":"+p.y+":"+p.z+":#FFFF0000:");
+      q = planet.world_to_point(gps.x, gps.y, gps.z);
+      if (q.x != p.x || q.y != p.y) throw "point mismatch "+face+" center ";
+    }
+  }
+}
+test();
+</script>
+</head>
+<body>
+</body>
+</html>
