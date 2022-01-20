@@ -110,13 +110,21 @@ class Planet {
     }
     if (!face) return undefined;
 
-    let pixel = this.map.ctx.getImageData(px, py, 1, 1).data;
+    // We lost a bit of altitude precision: RGB 8-bit vs. grayscale 16-bit.
+    // We made an RGB for the ores, we could make a separate heightmap but that
+    // would be heavy, that's why we made a diff map (also RGB).
+    // Since we would mostly care about precise altitude where ores are, we
+    // could make the diff map 16-bit grayscale, unfortunately the browser
+    // loads everything as RGB anyway. We could work around this by writing our
+    // own PNG parser and load the file data directly, but as this point we
+    // also don't specifically need to use PNG, we could use anything.
+    // In the end, the complexity isn't worth the additional altitude precision.
+    const height_bits = 8;
+    let height = this.map.ctx.getImageData(px, py, 1, 1).data[0];
     if (this.ore(pixel)) {
-      pixel = this.diff.ctx.getImageData(px, py, 1, 1).data;
+      height = this.diff.ctx.getImageData(px, py, 1, 1).data[0];
     }
-    const height = pixel[0];
-    const height_max = 2**16;
-    const altitude = this.min_hill_radius + height * (this.max_hill_radius - this.min_hill_radius) / height_max;
+    const altitude = this.min_hill_radius + height * (this.max_hill_radius - this.min_hill_radius) / (2 ** height_bits);
 
     // let origin be the center of the cube of size, i.e. from -r to r
     // we can translate and resize to actual world coordinates after

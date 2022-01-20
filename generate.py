@@ -23,6 +23,7 @@ red = (255, 0, 0)
 lime = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
+yellow2 = (255, 255, 1)
 cyan = (0, 255, 255)
 magenta = (255, 0, 255)
 maroon = (128, 0, 0)
@@ -31,6 +32,8 @@ green = (0, 128, 0)
 purple = (128, 0, 128)
 teal = (0, 128, 128)
 navy = (0, 0, 128)
+orange = (255, 165, 0)
+darkgreen = (0, 100, 0)
 
 ores_colors = {
   "Iron": red,
@@ -43,6 +46,14 @@ ores_colors = {
   "Gold": purple,
   "Platinum": maroon,
   "Uranium": green,
+
+  # Expanse ores
+  "Copper": orange,
+  "Lead": navy,
+  "Nickle": yellow2,
+  "Titanium": darkgreen,
+  "Tungsten": olive,
+  "Uraninite": green,
 }
 
 texture_position = {
