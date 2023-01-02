@@ -9,6 +9,12 @@ for p in Comet Triborg Prthvi Odin Purgatory; do
 done
 popd
 
+pushd maps/DIE_Enduur
+for p in Corpus Corpus-Triborg Floe Greer Greer-Triborg Voxliae; do
+  python3 "../../generate.py" "../../../DIE-DraconisCode/\!Mods/DraconisDIE_Planets/Data/DIEPlanets_PlanetGeneratorDefinitions.sbc" "$p" || exit 1
+done
+popd
+
 pushd maps/Expanse
 for p in Ceres Deimos Europa_E Ganymede Hygeia Io Jupiter Mars_E Moon_E Phobos Rhea Saturn Titan Vesta; do
   python3 "../../generate.py" "../../../../Workshop/Mods/2661197847_expanse_planet_files/Data/$p.sbc" "$p" || exit 1
