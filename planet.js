@@ -110,6 +110,7 @@ class Planet {
     }
     if (!face) return undefined;
 
+    const pixel = this.map.ctx.getImageData(px, py, 1, 1).data;
     // We lost a bit of altitude precision: RGB 8-bit vs. grayscale 16-bit.
     // We made an RGB for the ores, we could make a separate heightmap but that
     // would be heavy, that's why we made a diff map (also RGB).
