@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # Create a height and materials map of a planet.
 # Generates 2 images:
 # - map: heightmap + ores + legend
