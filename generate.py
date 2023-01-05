@@ -54,6 +54,9 @@ ores_colors = {
   "Titanium": darkgreen,
   "Tungsten": olive,
   "Uraninite": green,
+
+  # DIE: Enduur ores
+  "Vox": orange,
 }
 
 texture_position = {

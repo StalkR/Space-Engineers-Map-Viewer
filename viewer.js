@@ -44,6 +44,11 @@ window.onload = function() {
             result.value = "["+coords.x+", "+coords.y+"]";
         }
 
+        const a = planet.point_to_world(0, 0);
+        const b = planet.point_to_world(0, 1);
+        const d = Math.sqrt((a.x - b.x)**2 + (a.y - b.y)**2 + (a.z - b.z)**2);
+        document.getElementById("pixel-scale").value = Math.round(d);
+
         interactiveMap(planet);
         ready();
     }
