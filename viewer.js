@@ -20,6 +20,11 @@ window.onload = function() {
     choice.onchange = async function(evt) {
         const name = evt.target.value;
         if (!(name in Planets)) return;
+
+        const url = new URL(window.location);
+        url.searchParams.set('planet', name);
+        history.replaceState({}, '', url);
+
         loading();
         const planet = Planets[name];
         await planet.load();
@@ -64,10 +69,18 @@ window.onload = function() {
         }, 1000);
     }
 
+    const search = new URLSearchParams(document.location.search);
+    const name = search.get('planet');
+    if (name in Planets) {
+        choice.value = name;
+        choice.dispatchEvent(new Event('change'));
+        return;
+    }
+
     ready();
 };
 
-var CLICK_COUNT = 1;
+let CLICK_COUNT = 1;
 
 // thx http://phrogz.net/tmp/canvas_zoom_to_cursor.html
 function interactiveMap(planet) {
