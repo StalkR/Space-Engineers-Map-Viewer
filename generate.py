@@ -84,7 +84,7 @@ if len(sys.argv) == 2:
   raise SystemExit
 
 planet = sys.argv[2]
-assert planet in planets
+assert planet in planets, "planet %s not found in %s" % (planet, planets)
 
 print("[*] generating files for: %s" % planet)
 

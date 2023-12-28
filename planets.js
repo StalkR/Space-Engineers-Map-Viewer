@@ -12,8 +12,8 @@ const Triton = new PlanetDefinition({name: "StarSystem/Triton", size: 2048, hill
 // https://wiki.sigmadraconis.games/en/spaceengies/enduur/home
 // https://steamcommunity.com/sharedfiles/filedetails/?id=2831947604
 const Caldera = new PlanetDefinition({name: "DIE/Caldera", size: 2048, hills: [-0.03, 0.03]});
-const Corpus = new PlanetDefinition({name: "DIE/Corpus", size: 2048, hills: [-0.05, 0.2]});
-const Greer = new PlanetDefinition({name: "DIE/Greer", size: 2048, hills: [-0.05, 0.2]});
+const Corpus = new PlanetDefinition({name: "DIE/Corpus", size: 2048, hills: [-0.25, 0.25]});
+const Greer = new PlanetDefinition({name: "DIE/Greer", size: 2048, hills: [-0.05, 0.07]});
 const Kimi = new PlanetDefinition({name: "DIE/Kimi", size: 2048, hills: [-0.7, 0]});
 const Mora = new PlanetDefinition({name: "DIE/Mora", size: 512, hills: [-0.05, 0.05]});
 const Ryke117 = new PlanetDefinition({name: "DIE/Ryke117", size: 2048, hills: [-0.01, 0.12]});
