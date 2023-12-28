@@ -107,8 +107,14 @@ for k, v in texture_position.items():
 
 print("[*] planet definition: {name: %r, size: %i, hills: [%f, %f]}" % (planet, size, planet_min_hill, planet_max_hill))
 
-ore_mappings = tree.xpath("//Definitions/Definition[Id/SubtypeId='%s']/OreMappings/Ore" % planet)
-ore_mappings += tree.xpath("//Definitions/PlanetGeneratorDefinitions/PlanetGeneratorDefinition[Id/SubtypeId='%s']/OreMappings/Ore" % planet)
+planetmaps = tree.xpath("//Definitions/Definition[Id/SubtypeId='%s']/PlanetMaps" % planet)
+planetmaps += tree.xpath("//Definitions/PlanetGeneratorDefinitions/PlanetGeneratorDefinition[Id/SubtypeId='%s']/PlanetMaps" % planet)
+if len(planetmaps) == 1 and planetmaps[0].attrib['Ores'] == 'false':
+  print("[*] ores disabled on %s" % planet)
+  ore_mappings = []
+else:
+  ore_mappings = tree.xpath("//Definitions/Definition[Id/SubtypeId='%s']/OreMappings/Ore" % planet)
+  ore_mappings += tree.xpath("//Definitions/PlanetGeneratorDefinitions/PlanetGeneratorDefinition[Id/SubtypeId='%s']/OreMappings/Ore" % planet)
 
 ores = {}
 for ore in ore_mappings:
@@ -142,6 +148,8 @@ for k in sorted(texture_position.keys()):
   filename = os.path.join(data_dir, "%s_mat.png" % k)
   if not os.path.exists(filename):
     print("[-] no ores for tile %s" % k)
+    continue
+  if not ores:
     continue
   print("[*] finding ores in tile %s" % k)
   with Image.open(filename) as im:
