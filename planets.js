@@ -11,8 +11,13 @@ const Triton = new PlanetDefinition({name: "StarSystem/Triton", size: 2048, hill
 // DIE Enduur
 // https://wiki.sigmadraconis.games/en/spaceengies/enduur/home
 // https://steamcommunity.com/sharedfiles/filedetails/?id=2831947604
+const Caldera = new PlanetDefinition({name: "DIE/Caldera", size: 2048, hills: [-0.03, 0.03]});
 const Corpus = new PlanetDefinition({name: "DIE/Corpus", size: 2048, hills: [-0.05, 0.2]});
 const Greer = new PlanetDefinition({name: "DIE/Greer", size: 2048, hills: [-0.05, 0.2]});
+const Kimi = new PlanetDefinition({name: "DIE/Kimi", size: 2048, hills: [-0.7, 0]});
+const Mora = new PlanetDefinition({name: "DIE/Mora", size: 512, hills: [-0.05, 0.05]});
+const Ryke117 = new PlanetDefinition({name: "DIE/Ryke117", size: 2048, hills: [-0.01, 0.12]});
+const Tohil = new PlanetDefinition({name: "DIE/Tohil", size: 2048, hills: [-0.03, 0.03]});
 
 const Planets = {
   "StarSystem: Alien": Alien.new({radius: 60000, x: 0, y: 0, z: 5600000}),
@@ -24,6 +29,12 @@ const Planets = {
   "StarSystem: Titan": Titan.new({radius: 9500, x: 20000, y: 210000, z: 5780000}),
   "StarSystem: Triton": Triton.new({radius: 40126.5, x: -350000, y: -2500000, z: 300000}),
 
-  "DIE: Corpus": Corpus.new({radius: 12500, x: 418037.01, y: 418037.01, z: 413798.24}),
-  "DIE: Greer": Greer.new({radius: 12500, x: -469557.71, y: -431205.35, z: -446566.32}),
+  "DIE: Caldera": Caldera.new({radius: 30000, x: -2500000, y: 0, z: 0}),
+  "DIE: Corpus": Corpus.new({radius: 14998.5, x: 0, y: 0, z: -2000000}),
+  "DIE: Greer": Greer.new({radius: 14998.5, x: 0, y: 0, z: 2000000}),
+  "DIE: Kimi-C": Kimi.new({radius: 9500, x: 0, y: 0, z: -1700000}),
+  "DIE: Kimi-G": Kimi.new({radius: 9500, x: 0, y: 0, z: 1700000}),
+  "DIE: Mora": Mora.new({radius: 14998.5, x: 1000000, y: 0, z: 0}),
+  "DIE: Ryke117": Ryke117.new({radius: 15001.5, x: -5000000, y: 0, z: 0}),
+  "DIE: Tohil": Tohil.new({radius: 9500, x: 0, y: 0, z: 0}),
 };
