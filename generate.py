@@ -102,7 +102,7 @@ with Image.open(os.path.join(data_dir, "up.png")) as im:
   size = x
 print("[*] tiles are %ix%i" % (size, size))
 for k, v in texture_position.items():
-  x, y = v 
+  x, y = v
   texture_position[k] = x * size, y * size
 
 print("[*] planet definition: {name: %r, size: %i, hills: [%f, %f]}" % (planet, size, planet_min_hill, planet_max_hill))
@@ -145,7 +145,9 @@ for k in sorted(texture_position.keys()):
     continue
   print("[*] finding ores in tile %s" % k)
   with Image.open(filename) as im:
-    assert im.size == (size, size)
+    if im.size != (size, size):
+      print("[!] WARNING: height map size %s but materials size %s, resizing to %s" % (size, im.size, size))
+      im.resize((size, size))
     mat = im.load()
     for i in range(size):
       for j in range(size):
